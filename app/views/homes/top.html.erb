@@ -1,2 +1,17 @@
-<h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+<%= if flash[:notice] %>
+  <p id="notice">
+    <%= flash[:notice] %>
+  </p>
+<% end %>
+
+<h1>welcome to Bookers !!</h1>
+<p>
+  in Bookers,<br>
+  you can share and exchange your opinions, inpressions, and emotions<br>
+  about various books!
+</p>
+
+<div>
+  <%= link_to "Log in", new_user_session %><br>
+  <%= link_to "Sign up", new_user_registration %>
+</div>
