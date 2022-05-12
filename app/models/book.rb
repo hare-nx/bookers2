@@ -1,4 +1,3 @@
-class Book < destroy_user_session_path
-
+class Book < ApplicationRecord
   belongs_to :user
 end
