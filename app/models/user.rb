@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   validates :name, length: {in: 2..20}
   validates :email, presence: true
-  validates :password, presence: true
+  validates :password, presence: true, on: :create
 
 
   def get_profile_image(width, height)

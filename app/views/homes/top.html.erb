@@ -1,8 +1,3 @@
-<%= if flash[:notice] %>
-  <p id="notice">
-    <%= flash[:notice] %>
-  </p>
-<% end %>
 
 <h1>welcome to Bookers !!</h1>
 <p>
@@ -12,6 +7,6 @@
 </p>
 
 <div>
-  <%= link_to "Log in", new_user_session %><br>
-  <%= link_to "Sign up", new_user_registration %>
+  <%= link_to "Log in", new_user_session_path %><br>
+  <%= link_to "Sign up", new_user_registration_path %>
 </div>
