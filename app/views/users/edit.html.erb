@@ -1,5 +1,5 @@
 <% if @user.errors.any? %>
-  <%= @user.errors.count %> errors prohibited this obj from being saved:
+  <%= pluralize(@user.errors.count, "error") %> prohibited this obj from being saved:
     <ul>
       <% @user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -15,5 +15,5 @@
   <%= f.file_field :profile_image, placeholder: "ファイルを選択", accept: "image/*" %><br>
   <label for="inpurIntroduction">Introduction</label><br>
   <%= f.text_area :introduction, id: "inputIntroduction" %><br>
-  <%= f.submit "update User" %>
+  <%= f.submit "Update User" %>
 <% end %>

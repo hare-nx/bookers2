@@ -1,15 +1,27 @@
 <h1>Book details</h1>
-<div>
-  <%= link_to user_path(@book.user.id) do %>
-    <%= image_tag @book.user.get_profile_image(100,100) %><br>
-    <%= @book.user.name %>
-  <% end %>
-</div>
-<p>
-  <%= link_to book_path(@book) do %>
-    <%= @book.title %>
-  <% end %>
-</p>
-<p>
-  <%= @book.body %>
-</p>
+<Table>
+  <tr>
+    <th>
+      <%= link_to user_path(@book.user.id) do %>
+        <%= image_tag @book.user.get_profile_image(100,100) %><br>
+        <%= @book.user.name %>
+      <% end %>
+    </th>
+    <th>
+      <%= link_to book_path(@book) do %>
+        <%= @book.title %>
+      <% end %>
+    </th>
+    <th>
+      <%= @book.body %>
+    </th>
+    <% if @book.user==current_user %>
+    <th>
+      <%= link_to "Edit", edit_book_path(@book) %>
+    </th>
+    <th>
+      <%= link_to "Destroy", book_path(@book), method: :delete, "data_confirm"=>"本当に消しますか？" %>
+    </th>
+    <% end %>
+  </tr>
+</Table>
