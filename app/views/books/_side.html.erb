@@ -1,20 +1,40 @@
-<h3>User info</h3>
-<div>
+<div class="container">
+  <h3 class="text-left">User info</h3>
+  <div class="row ml-1">
   <%= image_tag user.get_profile_image(100,100) %>
-</div>
-<div>
-  <p><strong>name</strong></p>
-  <strong><%= user.name %></strong>
-  <p>introduction</p>
-  <strong><%= user.introduction %></strong>
-</div>
-<%= link_to "へんしゅう", edit_user_path(current_user) %>
-
-<h3>New book</h3>
-<%= form_with model: book do |f| %>
-  <label for="inputTitle">Title</label><br>
-  <%= f.text_field :title, id: "inputTitle" %><br>
-  <label for="inputBody">Opinion</label><br>
-  <%= f.text_area :body, id: "inputOpinion" %><br>
-  <%= f.submit "Create Book" %>
+  </div>
+<table class="table">
+  <tr>
+    <th style="width: 50%">name</th>
+    <th style="width: 50%"><%= user.name %></th>
+  </tr>
+  <tr>
+    <th style="width: 50%">introduction</th>
+    <th style="width: 50%"><%= user.introduction %></th>
+  </tr>
+</table>
+<%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
+  <i class="fa-solid fa-user-gear"></i>
 <% end %>
+</div>
+
+<div class="container mt-5">
+  <h3>New book</h3>
+  <%= form_with model: book do |f| %>
+  <div class="row ml-1 mr-1">
+    <label>Title</label>
+  </div>
+  <div class="row mb-3 ml-1 mr-1">
+    <%= f.text_field :title, class: "w-100" %>
+  </div>
+  <div class="row ml-1 mr-1">
+    <label>Opinion</label>
+  </div>
+  <div class="row mb-3 ml-1 mr-1">
+    <%= f.text_area :body, class: "w-100" %>
+  </div>
+  <div class="row ml-1 mr-1">
+    <%= f.submit "Create Book", class: "btn btn-success btn-sm text-light" %>
+  </div>
+  <% end %>
+</div>
