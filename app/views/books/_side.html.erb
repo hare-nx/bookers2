@@ -13,14 +13,15 @@
     <th style="width: 50%"><%= user.introduction %></th>
   </tr>
 </table>
-<%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
-  <i class="fa-solid fa-user-gear"></i>
-<% end %>
+    <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block" do %>
+      <i class="fas fa-user-cog"></i>
+    <% end %>
+
 </div>
 
 <div class="container mt-5">
   <h2>New book</h2>
-  <%= form_with model: book do |f| %>
+  <%= form_with model: book, url: books_path do |f| %>
   <div class="row ml-1 mr-1">
     <label>Title</label>
   </div>

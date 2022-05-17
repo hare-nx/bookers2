@@ -1,4 +1,4 @@
-<div class="container-fluid mt-3 pl-4 pr-4">
+<div class="container w-100 mt-3 pl-4 pr-4">
  <% if @book.errors.any? %>
   <h3 class="ml-5"><%= pluralize(@book.errors.count, "error") %> prohibited this obj from being saved:</h3>
    <ul class="ml-5">
@@ -8,10 +8,10 @@
    </ul>
  <% end %>
   <div class="row justify-content-around">
-    <div class="col-12 col-lg-3 mb-5">
+    <div class="col-12 col-md-3 mb-5">
       <%= render 'side', user: @user, book: @book %>
     </div>
-    <div class="col-10 col-lg-7">
+    <div class="col-10 col-md-8 offset-md-1">
       <h2>Books</h2>
       <table class="table table-hover">
         <tr>
