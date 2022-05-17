@@ -1,20 +1,31 @@
-<h3>Editing Book</h3>
-<% if @book.errors.any? %>
-  <%= pluralize(@book.errors.count, "error") %> prohibited this obj from being saved:
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<div>
-  <%= form_with model: @book do |f| %>
-    <label for="inputTitle">Title</label><br>
-    <%= f.text_field :title %><br>
-    <label for="inputBody">Opinion</label><br>
-    <%= f.text_area :body %><br>
-    <%= f.submit "Update Book" %>
+<div class="container-sm mt-3 w-75">
+  <h2>Editing Book</h2>
+  <% if @book.errors.any? %>
+    <h3><%= pluralize(@book.errors.count, "error") %> prohibited this obj from being saved:</h3>
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
   <% end %>
-  <%= link_to "Show", book_path(@book) %> / <%= link_to "Back", books_path %>
+  <%= form_with model: @book do |f| %>
+  <div class="row ml-1 mr-1">
+    <label>Title</label>
+  </div>
+  <div class="row mb-3 ml-1 mr-1">
+    <%= f.text_field :title, class: "w-100" %>
+  </div>
+  <div class="row ml-1 mr-1">
+    <label>Opinion</label>
+  </div>
+  <div class="row mb-3 ml-1 mr-1">
+    <%= f.text_area :body, class: "w-100" %>
+  </div>
+  <div class="row ml-1 mr-1 mb-4">
+    <%= f.submit "Update Book", class: "btn btn-success btn-sm" %>
+  </div>
+  <% end %>
+  <div class="row ml-1 mr-1">
+    <%= link_to "Show", book_path(@book), class: "mr-1" %> | <%= link_to "Back", books_path, class: "ml-1" %>
+  </div>
 </div>
